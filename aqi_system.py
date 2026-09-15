@@ -28,7 +28,7 @@ def environmental_sensor():
       outdoor_activities = True
 
     result.append(status)
-    result.append(outdoor_activites)
+    result.append(outdoor_activities)
 
   return result
 result = environmental_sensor()
@@ -41,4 +41,4 @@ print(f"PM Concentration: {pm25}")
 print(f"Carbon Monoxide PPM: {cm_ppm}")
 print(f"Humidity Rate (%): {humidity}")
 print(f"Status: {status}")
-print(f"Outdoor Activities: {outdoor_activites}")
+print(f"Outdoor Activities: {outdoor_activities}")
