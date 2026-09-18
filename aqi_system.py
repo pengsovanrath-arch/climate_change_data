@@ -24,20 +24,19 @@ def environmental_sensor():
       outdoor_activities = True
 
 
-  result.append[{
-    'sensor_id': sensor_id,
-    'pm25': pm25,
-    'cm_ppm': cm_ppm,
-    'humidity': humidity,
-    'status': status,
-    'outdoor_activities': outdoor_activites
+    result.append({
+      'sensor_id': sensor_id,
+      'pm25': pm25,
+      'cm_ppm': cm_ppm,
+      'humidity': humidity,
+      'status': status,
+      'outdoor_activities': outdoor_activities
   
-  }]
+    })
 
   return result
-result = environmental_sensor()
 
-environmental_sensor()
+result = environmental_sensor()
 
 for sensor in result:
   print(f"Country's Sensor ID: {sensor['sensor_id']}")
