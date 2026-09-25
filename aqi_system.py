@@ -6,6 +6,7 @@ def environmental_sensor():
   ]
 
   result = []
+  dangerous_zone = []
   
   for sensor in environmental_data:
     sensor_id = sensor['sensor_id']
@@ -16,6 +17,15 @@ def environmental_sensor():
     if pm25 >= 250 or cm_ppm >= 100 or (humidity >= 80 and pm25 >= 150):
       status = "Hazardous"
       outdoor_activities = False
+      dangerous_zone.append({
+        'sensor_id': sensor_id,
+        'pm25': pm25,
+        'cm_ppm': cm_ppm,
+        'humidity': humidity,
+        'status': status,
+        'outdoor_activities': outdoor_activities
+  
+    })
     elif pm25 >= 55 or cm_ppm >= 35 or (humidity >= 60 and pm25 >= 35):
       status = "Unhealthy"
       outdoor_activities = False
@@ -34,9 +44,9 @@ def environmental_sensor():
   
     })
 
-  return result
+  return result, dangerous_zone
 
-result = environmental_sensor()
+result, dangerous_zone = environmental_sensor()
 
 for sensor in result:
   print(f"Country's Sensor ID: {sensor['sensor_id']}")
@@ -45,4 +55,16 @@ for sensor in result:
   print(f"Humidity Rate (%): {sensor['humidity']}")
   print(f"Status: {sensor['status']}")
   print(f"Outdoor Activities: {sensor['outdoor_activities']}")
+  print()
+
+print(f"Country that is hazardous: ")
+
+for info in dangerous_zone:
+  
+  print(f"Country's Sensor ID: {info['sensor_id']}")
+  print(f"PM Concentration: {info['pm25']}")
+  print(f"Carbon Monoxide PPM: {info['cm_ppm']}")
+  print(f"Humidity Rate (%): {info['humidity']}")
+  print(f"Status: {info['status']}")
+  print(f"Outdoor Activities: {info['outdoor_activities']}")
   print()
