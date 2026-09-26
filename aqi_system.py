@@ -7,12 +7,16 @@ def environmental_sensor():
 
   result = []
   dangerous_zone = []
+
+  environmental_data.sort(key=lambda sensor: sensor['pm25'])
   
   for sensor in environmental_data:
     sensor_id = sensor['sensor_id']
     pm25 = sensor['pm25']
     cm_ppm = sensor['cm_ppm']
     humidity = sensor['humidity']
+
+
   
     if pm25 >= 250 or cm_ppm >= 100 or (humidity >= 80 and pm25 >= 150):
       status = "Hazardous"
