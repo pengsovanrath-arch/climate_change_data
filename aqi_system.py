@@ -1,3 +1,5 @@
+import numpy as np
+
 def environmental_sensor():
   
   environmental_data = [
